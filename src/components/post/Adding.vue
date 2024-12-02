@@ -2,6 +2,7 @@
 import { usePostStore } from '@/stores/post'
 
 const { addPost } = usePostStore()
+const textarea = useTemplateRef('textarea')
 
 const postName = ref<string>('')
 const isDialogOpen = ref<boolean>(false)
@@ -14,6 +15,15 @@ function savePost() {
 function closeDialog() {
   isDialogOpen.value = false
 }
+
+function focusTextarea() {
+  requestAnimationFrame(() => requestAnimationFrame(() => textarea.value?.focus()))
+}
+
+watch(
+  [isDialogOpen, textarea],
+  ([isDialogOpen, textarea]) => isDialogOpen && textarea && focusTextarea(),
+)
 </script>
 
 <template>
