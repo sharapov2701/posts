@@ -12,6 +12,10 @@ function savePost() {
   closeDialog()
 }
 
+function clearForm() {
+  postName.value = ''
+}
+
 function closeDialog() {
   isDialogOpen.value = false
 }
@@ -20,10 +24,15 @@ function focusTextarea() {
   requestAnimationFrame(() => requestAnimationFrame(() => textarea.value?.focus()))
 }
 
-watch(
-  [isDialogOpen, textarea],
-  ([isDialogOpen, textarea]) => isDialogOpen && textarea && focusTextarea(),
-)
+watch([isDialogOpen, textarea], ([isDialogOpen, textarea]) => {
+  if (isDialogOpen) {
+    if (textarea) {
+      focusTextarea()
+    }
+  } else {
+    clearForm()
+  }
+})
 </script>
 
 <template>
