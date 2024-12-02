@@ -18,7 +18,9 @@ const reversedPosts = computed<Post[]>(() => posts.value.toReversed())
 
 const filteredPosts = computed<Post[]>(() =>
   search.value
-    ? reversedPosts.value.filter((post) => post.name.toLowerCase().includes(search.value.toLowerCase()))
+    ? reversedPosts.value.filter((post) =>
+        post.name.toLowerCase().includes(search.value.toLowerCase()),
+      )
     : reversedPosts.value,
 )
 
@@ -65,8 +67,8 @@ function toggleSearch() {
     </v-toolbar>
 
     <v-list :items="displayedPosts" lines="three" item-props>
-      <template #subtitle="{ item }">
-        <post :post="item" />
+      <template #subtitle="{ item: post }">
+        <post :key="post.id" :post="post" />
       </template>
     </v-list>
 
