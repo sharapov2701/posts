@@ -14,10 +14,12 @@ const search = ref<string>('')
 const pageSize = ref<number>(10)
 const isSearchDisplayed = ref<boolean>(false)
 
+const reversedPosts = computed<Post[]>(() => posts.value.toReversed())
+
 const filteredPosts = computed<Post[]>(() =>
   search.value
-    ? posts.value.filter((post) => post.name.toLowerCase().includes(search.value.toLowerCase()))
-    : posts.value,
+    ? reversedPosts.value.filter((post) => post.name.toLowerCase().includes(search.value.toLowerCase()))
+    : reversedPosts.value,
 )
 
 const displayedPosts = computed<Post[]>(() =>
