@@ -58,6 +58,7 @@ function save() {
   <v-hover>
     <template #default="{ isHovering, props: hoverProps }">
       <v-list-item
+      class="mx-2 mb-2"
         v-bind="hoverProps"
         color="gray"
         :active="isEditing || isFocused || isHovering"
