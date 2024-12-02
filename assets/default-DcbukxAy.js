@@ -1,0 +1,1 @@
+import{d as o,c as s,w as e,V as n,r,o as c,a,b as _}from"./index-By6SpgLf.js";const f=o({__name:"default",setup(p){return(l,u)=>{const t=r("router-view");return c(),s(n,null,{default:e(()=>[a(_,{class:"py-6 h-screen"},{default:e(()=>[a(t)]),_:1})]),_:1})}}});export{f as default};
