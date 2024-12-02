@@ -1,5 +1,5 @@
 <template>
-  <PostList />
+  <post-list />
 </template>
 
 <script lang="ts" setup>
