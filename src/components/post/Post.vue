@@ -64,18 +64,18 @@ function save() {
         @click="focusPost"
         @blur="blurPost"
       >
-        <v-form @submit.prevent>
-          <v-textarea
-            ref="textarea"
-            v-model:model-value="postName"
-            rows="2"
-            auto-grow
-            variant="plain"
-            :label="post.id"
-            :readonly="!isEditing"
-            @blur="blurPost"
-          />
+        <v-textarea
+          ref="textarea"
+          v-model:model-value="postName"
+          rows="2"
+          auto-grow
+          variant="plain"
+          :label="post.id"
+          :readonly="!isEditing"
+          @blur="blurPost"
+        />
 
+        <div class="d-flex">
           <v-btn v-if="isEditing" class="mr-2" @click.stop="cancelEditing">
             Отмена
             <v-icon icon="mdi-cancel" end />
@@ -86,17 +86,13 @@ function save() {
             <v-icon icon="mdi-pencil" end />
           </v-btn>
 
-          <v-btn
-            v-if="isEditing"
-            type="submit"
-            color="blue"
-            :disabled="isSavingDisabled"
-            @click.stop="save"
-          >
+          <v-btn v-if="isEditing" color="blue" :disabled="isSavingDisabled" @click.stop="save">
             Сохранить
             <v-icon icon="mdi-content-save" end />
           </v-btn>
-        </v-form>
+
+          <post-deletion v-if="isEditing" class="ml-auto" :post-id="post.id" />
+        </div>
       </v-list-item>
     </template>
   </v-hover>

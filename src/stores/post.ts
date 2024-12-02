@@ -35,6 +35,13 @@ export const usePostStore = defineStore('post', () => {
     return post
   }
 
+  function deletePost(postId: Post['id']) {
+    const postIndex = posts.value.findIndex(post => post.id === postId)
+    if (postIndex > -1) {
+      posts.value.splice(postIndex, 1)
+    }
+  }
+
   watch(posts, savePosts, { deep: true })
 
   onMounted(() => getPosts())
@@ -42,5 +49,6 @@ export const usePostStore = defineStore('post', () => {
   return {
     posts,
     editPost,
+    deletePost,
   }
 })
