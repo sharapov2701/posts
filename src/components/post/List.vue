@@ -19,16 +19,18 @@
 </template>
 
 <script setup lang="ts">
-import type { Post } from '@/types/post'
-import * as data from '@/assets/data.json'
+import { storeToRefs } from 'pinia'
 
-const pageSize: number = 10
+import { usePostStore } from '@/stores/post'
+
+const postStore = usePostStore()
+const { posts } = storeToRefs(postStore)
 
 const page = ref<number>(1)
+const pageSize = ref<number>(10)
 
-const posts = computed<Post[]>(() => data.posts)
 const displayedPosts = computed(() =>
-  posts.value.slice((page.value - 1) * pageSize, page.value * pageSize),
+  posts.value.slice((page.value - 1) * pageSize.value, page.value * pageSize.value),
 )
-const pagesTotal = computed(() => Math.floor(posts.value.length / pageSize) || 1)
+const pagesTotal = computed(() => Math.floor(posts.value.length / pageSize.value) || 1)
 </script>
