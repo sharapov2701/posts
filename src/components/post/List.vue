@@ -52,7 +52,9 @@ const pagesTotal = computed<number>(
     </v-toolbar>
 
     <v-list class="flex-grow-1 overflow-y-auto" item-props lines="three" :items="displayedPosts">
-      <post v-for="post in displayedPosts" :key="post.id" :post="post" />
+      <div class="d-flex flex-column ga-2">
+        <post v-for="post in displayedPosts" :key="post.id" :post="post" />
+      </div>
 
       <post-adding />
     </v-list>
