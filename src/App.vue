@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+//
+</script>
+
 <template>
   <v-theme-provider theme="dark">
     <v-app>
@@ -7,7 +11,3 @@
     </v-app>
   </v-theme-provider>
 </template>
-
-<script lang="ts" setup>
-//
-</script>

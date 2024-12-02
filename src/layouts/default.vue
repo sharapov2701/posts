@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+//
+</script>
+
 <template>
   <v-app>
     <v-main class="py-sm-0 py-md-6 h-screen">
@@ -5,7 +9,3 @@
     </v-main>
   </v-app>
 </template>
-
-<script lang="ts" setup>
-//
-</script>
