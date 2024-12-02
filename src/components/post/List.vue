@@ -33,7 +33,7 @@ const pagesTotal = computed<number>(
 </script>
 
 <template>
-  <v-card class="mx-auto h-100 d-flex flex-column" max-width="800">
+  <v-card class="mx-auto h-100 d-flex flex-column" max-width="959">
     <v-toolbar color="blue">
       <v-toolbar-title>Посты</v-toolbar-title>
 
