@@ -28,7 +28,7 @@ function blurPost() {
 }
 
 function focusTextarea() {
-  textarea.value.focus()
+  textarea.value?.focus()
 }
 
 function startEditing() {
@@ -61,7 +61,7 @@ function save() {
         class="mx-2"
         v-bind="hoverProps"
         color="gray"
-        :active="isEditing || isFocused || isHovering"
+        :active="isEditing || isFocused || !!isHovering"
         @click="focusPost"
         @blur="blurPost"
       >

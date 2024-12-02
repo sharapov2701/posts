@@ -13,7 +13,7 @@ const page = ref<number>(1)
 const search = ref<string>('')
 const pageSize = ref<number>(10)
 
-const reversedPosts = computed<Post[]>(() => posts.value.toReversed())
+const reversedPosts = computed<Post[]>(() => [...posts.value].reverse())
 
 const filteredPosts = computed<Post[]>(() =>
   search.value
