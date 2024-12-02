@@ -1,1 +1,0 @@
-import{d as o,c as s,w as e,V as n,r,o as c,a,b as p}from"./index-D4xPGPRQ.js";const d=o({__name:"default",setup(_){return(l,u)=>{const t=r("router-view");return c(),s(n,null,{default:e(()=>[a(p,{class:"py-sm-0 py-md-6 h-screen"},{default:e(()=>[a(t)]),_:1})]),_:1})}}});export{d as default};
