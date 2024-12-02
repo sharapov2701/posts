@@ -44,7 +44,7 @@ function toggleSearch() {
 
 <template>
   <v-card class="mx-auto" max-width="800">
-    <v-toolbar>
+    <v-toolbar color="blue">
       <v-toolbar-title>Посты</v-toolbar-title>
 
       <v-spacer />
