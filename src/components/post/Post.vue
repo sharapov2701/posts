@@ -106,7 +106,7 @@ function save() {
             <v-icon icon="mdi-content-save" end />
           </v-btn>
 
-          <post-deletion class="ml-auto" :post-id="post.id" />
+          <post-deletion v-if="!isEditing" class="ml-auto" :post-id="post.id" />
         </div>
       </v-list-item>
     </template>
