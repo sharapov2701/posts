@@ -77,11 +77,13 @@ function save() {
           />
 
           <v-btn v-if="isEditing" class="mr-2" @click.stop="cancelEditing">
-            <v-icon icon="mdi-cancel" />
+            Отмена
+            <v-icon icon="mdi-cancel" end />
           </v-btn>
 
           <v-btn v-else class="mr-2" @click.stop="startEditing">
-            <v-icon icon="mdi-pencil" />
+            Редактировать
+            <v-icon icon="mdi-pencil" end />
           </v-btn>
 
           <v-btn
@@ -91,7 +93,8 @@ function save() {
             :disabled="isSavingDisabled"
             @click.stop="save"
           >
-            <v-icon icon="mdi-content-save" />
+            Сохранить
+            <v-icon icon="mdi-content-save" end />
           </v-btn>
         </v-form>
       </v-list-item>
