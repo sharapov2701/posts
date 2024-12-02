@@ -1,33 +1,20 @@
 <template>
-  <v-card
-    class="mx-auto"
-    max-width="800"
-  >
+  <v-card class="mx-auto" max-width="800">
     <v-toolbar>
       <v-toolbar-title>Лента</v-toolbar-title>
 
       <v-spacer />
 
-      <v-btn
-        icon="mdi-magnify"
-        variant="text"
-      />
+      <v-btn icon="mdi-magnify" variant="text" />
     </v-toolbar>
 
-    <v-list
-      :items="items"
-      lines="three"
-      item-props
-    >
+    <v-list :items="items" lines="three" item-props>
       <template #subtitle="{ subtitle }">
         <div v-html="subtitle" />
       </template>
     </v-list>
 
-    <v-pagination
-      v-model="page"
-      :length="pagesTotal"
-    />
+    <v-pagination v-model="page" :length="pagesTotal" />
   </v-card>
 </template>
 

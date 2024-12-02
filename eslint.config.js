@@ -5,6 +5,7 @@
  */
 
 import pluginVue from 'eslint-plugin-vue'
+import eslintConfigPrettier from 'eslint-config-prettier'
 import vueTsEslintConfig from '@vue/eslint-config-typescript'
 
 export default [
@@ -31,6 +32,8 @@ export default [
         },
       ],
       'vue/multi-word-component-names': 'off',
-    }
-  }
+    },
+  },
+
+  eslintConfigPrettier,
 ]
