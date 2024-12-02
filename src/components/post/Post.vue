@@ -62,6 +62,7 @@ function save() {
         v-bind="hoverProps"
         color="gray"
         variant="tonal"
+        :ripple="false"
         :active="isEditing || isFocused || !!isHovering"
         @blur="blurPost"
         @click="focusPost"
