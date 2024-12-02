@@ -61,9 +61,10 @@ function save() {
         class="mx-2"
         v-bind="hoverProps"
         color="gray"
+        variant="tonal"
         :active="isEditing || isFocused || !!isHovering"
-        @click="focusPost"
         @blur="blurPost"
+        @click="focusPost"
       >
         <v-textarea
           ref="textarea"
