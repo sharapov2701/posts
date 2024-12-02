@@ -12,6 +12,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     List: typeof import('./components/post/List.vue')['default']
     Post: typeof import('./components/post/Post.vue')['default']
+    PostAdding: typeof import('./components/post/Adding.vue')['default']
     PostDelet: typeof import('./components/post/Delet.vue')['default']
     PostDelete: typeof import('./components/post/Delete.vue')['default']
     PostDeletion: typeof import('./components/post/Deletion.vue')['default']

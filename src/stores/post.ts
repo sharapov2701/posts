@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { v4 as uuidv4 } from 'uuid'
 
 import data from '@/assets/data.json'
 import type { Post } from '@/types/post'
@@ -27,6 +28,17 @@ export const usePostStore = defineStore('post', () => {
     return posts.value.find((post) => post.id === postId)
   }
 
+  function addPost(postData: Omit<Post, 'id'>): Post {
+    const newPost = {
+      id: uuidv4(),
+      ...postData,
+    }
+
+    posts.value.push(newPost)
+
+    return newPost
+  }
+
   function editPost({ id: postId, ...postData }: Post): Post | undefined {
     const post = getPostById(postId)
     if (post) {
@@ -36,7 +48,7 @@ export const usePostStore = defineStore('post', () => {
   }
 
   function deletePost(postId: Post['id']) {
-    const postIndex = posts.value.findIndex(post => post.id === postId)
+    const postIndex = posts.value.findIndex((post) => post.id === postId)
     if (postIndex > -1) {
       posts.value.splice(postIndex, 1)
     }
@@ -48,6 +60,7 @@ export const usePostStore = defineStore('post', () => {
 
   return {
     posts,
+    addPost,
     editPost,
     deletePost,
   }
