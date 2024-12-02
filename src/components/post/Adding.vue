@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import type { Post } from '@/types/post'
 import { usePostStore } from '@/stores/post'
+
+interface PostAddingEmits {
+  (e: 'add-post', post: Post): void
+}
+
+const emit = defineEmits<PostAddingEmits>()
 
 const { addPost } = usePostStore()
 const textarea = useTemplateRef('textarea')
@@ -8,8 +15,9 @@ const postName = ref<string>('')
 const isDialogOpen = ref<boolean>(false)
 
 function savePost() {
-  addPost({ name: postName.value })
+  const newPost = addPost({ name: postName.value })
   closeDialog()
+  emit('add-post', newPost)
 }
 
 function clearForm() {

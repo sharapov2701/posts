@@ -5,6 +5,7 @@ import type { Post } from '@/types/post'
 import { usePostStore } from '@/stores/post'
 
 const postStore = usePostStore()
+const list = useTemplateRef('list')
 const { posts } = storeToRefs(postStore)
 
 const page = ref<number>(1)
@@ -28,6 +29,16 @@ const displayedPosts = computed<Post[]>(() =>
 const pagesTotal = computed<number>(
   () => Math.floor(filteredPosts.value.length / pageSize.value) || 1,
 )
+
+function returnToBeginning() {
+  page.value = 1
+  nextTick(() =>
+    list.value?.$el.scroll({
+      top: 0,
+      behavior: 'smooth',
+    }),
+  )
+}
 </script>
 
 <template>
@@ -48,12 +59,18 @@ const pagesTotal = computed<number>(
       />
     </v-toolbar>
 
-    <v-list class="flex-grow-1 overflow-y-auto" item-props lines="three" :items="displayedPosts">
+    <v-list
+      ref="list"
+      class="flex-grow-1 overflow-y-auto"
+      item-props
+      lines="three"
+      :items="displayedPosts"
+    >
       <div class="d-flex flex-column ga-2">
         <post v-for="post in displayedPosts" :key="post.id" :post="post" />
       </div>
 
-      <post-adding />
+      <post-adding @add-post="returnToBeginning" />
     </v-list>
 
     <v-pagination v-model="page" :length="pagesTotal" />
