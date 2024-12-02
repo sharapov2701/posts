@@ -7,8 +7,6 @@ import { usePostStore } from '@/stores/post'
 const postStore = usePostStore()
 const { posts } = storeToRefs(postStore)
 
-const searchField = useTemplateRef('searchField')
-
 const page = ref<number>(1)
 const search = ref<string>('')
 const pageSize = ref<number>(10)
@@ -40,7 +38,6 @@ const pagesTotal = computed<number>(
       <v-spacer />
 
       <v-text-field
-        ref="searchField"
         v-model:model-value="search"
         class="mx-5"
         clearable
