@@ -1,5 +1,5 @@
 <template>
-  <HelloWorld />
+  <PostList />
 </template>
 
 <script lang="ts" setup>
