@@ -76,9 +76,12 @@ function save() {
             @blur="blurPost"
           />
 
-          <v-btn class="mr-2" @click.stop="isEditing ? cancelEditing() : startEditing()">
-            <span v-if="isEditing"> Отмена </span>
-            <v-icon v-else icon="mdi-pencil" />
+          <v-btn v-if="isEditing" class="mr-2" @click.stop="cancelEditing">
+            <v-icon icon="mdi-cancel" />
+          </v-btn>
+
+          <v-btn v-else class="mr-2" @click.stop="startEditing">
+            <v-icon icon="mdi-pencil" />
           </v-btn>
 
           <v-btn
@@ -88,7 +91,7 @@ function save() {
             :disabled="isSavingDisabled"
             @click.stop="save"
           >
-            Сохранить
+            <v-icon icon="mdi-content-save" />
           </v-btn>
         </v-form>
       </v-list-item>
