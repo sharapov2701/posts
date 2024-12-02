@@ -59,7 +59,7 @@ function save() {
     <template #default="{ isHovering, props: hoverProps }">
       <v-list-item
         v-bind="hoverProps"
-        active-color="gray"
+        color="gray"
         :active="isEditing || isFocused || isHovering"
         @click="focusPost"
         @blur="blurPost"
