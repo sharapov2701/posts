@@ -23,11 +23,24 @@ export const usePostStore = defineStore('post', () => {
     localStorage.setItem(LocalStorage.Posts, JSON.stringify(posts))
   }
 
-  watch(posts, savePosts)
+  function getPostById(postId: Post['id']): Post | undefined {
+    return posts.value.find((post) => post.id === postId)
+  }
+
+  function editPost({ id: postId, ...postData }: Post): Post | undefined {
+    const post = getPostById(postId)
+    if (post) {
+      Object.assign(post, postData)
+    }
+    return post
+  }
+
+  watch(posts, savePosts, { deep: true })
 
   onMounted(() => getPosts())
 
   return {
     posts,
+    editPost,
   }
 })

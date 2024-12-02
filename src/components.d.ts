@@ -11,6 +11,7 @@ declare module 'vue' {
     Footer: typeof import('./components/app/Footer.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     List: typeof import('./components/post/List.vue')['default']
+    Post: typeof import('./components/post/Post.vue')['default']
     PostList: typeof import('./components/post/List.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
