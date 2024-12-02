@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto" max-width="800">
     <v-toolbar>
-      <v-toolbar-title>Лента</v-toolbar-title>
+      <v-toolbar-title>Посты</v-toolbar-title>
 
       <v-spacer />
 
