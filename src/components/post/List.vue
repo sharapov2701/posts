@@ -12,7 +12,6 @@ const searchField = useTemplateRef('searchField')
 const page = ref<number>(1)
 const search = ref<string>('')
 const pageSize = ref<number>(10)
-const isSearchDisplayed = ref<boolean>(false)
 
 const reversedPosts = computed<Post[]>(() => posts.value.toReversed())
 
@@ -31,19 +30,6 @@ const displayedPosts = computed<Post[]>(() =>
 const pagesTotal = computed<number>(
   () => Math.floor(filteredPosts.value.length / pageSize.value) || 1,
 )
-
-function showSearch() {
-  isSearchDisplayed.value = true
-  nextTick(() => searchField.value.focus())
-}
-
-function hideSearch() {
-  isSearchDisplayed.value = false
-}
-
-function toggleSearch() {
-  isSearchDisplayed.value ? hideSearch() : showSearch()
-}
 </script>
 
 <template>
@@ -54,16 +40,15 @@ function toggleSearch() {
       <v-spacer />
 
       <v-text-field
-        v-if="isSearchDisplayed"
         ref="searchField"
         v-model:model-value="search"
-        class="mx-2"
+        class="mx-5"
         clearable
         hide-details
+        label="Поиск"
         variant="solo"
+        append-inner-icon="mdi-magnify"
       />
-
-      <v-btn icon="mdi-magnify" variant="text" @click="toggleSearch" />
     </v-toolbar>
 
     <v-list :items="displayedPosts" lines="three" item-props>
