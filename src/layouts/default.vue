@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main class="pt-6">
+    <v-main class="py-6">
       <router-view />
     </v-main>
 
