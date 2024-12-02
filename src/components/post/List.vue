@@ -33,7 +33,7 @@ const pagesTotal = computed<number>(
 </script>
 
 <template>
-  <v-card class="mx-auto" max-width="800">
+  <v-card class="mx-auto h-100 d-flex flex-column" max-width="800">
     <v-toolbar color="blue">
       <v-toolbar-title>Посты</v-toolbar-title>
 
@@ -51,7 +51,7 @@ const pagesTotal = computed<number>(
       />
     </v-toolbar>
 
-    <v-list :items="displayedPosts" lines="three" item-props>
+    <v-list class="flex-grow-1 overflow-y-auto" :items="displayedPosts" lines="three" item-props>
       <template #subtitle="{ item: post }">
         <post :key="post.id" :post="post" />
       </template>
