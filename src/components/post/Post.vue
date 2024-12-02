@@ -45,7 +45,7 @@ function save() {
       ref="textarea"
       v-model:model-value="postName"
       rows="2"
-      no-resize
+      auto-grow
       variant="plain"
       :label="post.id"
       :readonly="!isEditing"
