@@ -33,6 +33,8 @@ export default defineConfig({
     }),
     Components({
       dts: 'src/components.d.ts',
+      directoryAsNamespace: true,
+      collapseSamePrefixes: true
     }),
     Vue({
       template: { transformAssetUrls },
