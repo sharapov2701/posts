@@ -51,7 +51,7 @@ const pagesTotal = computed<number>(
       />
     </v-toolbar>
 
-    <v-list class="flex-grow-1 overflow-y-auto" :items="displayedPosts" lines="three" item-props>
+    <v-list class="flex-grow-1 overflow-y-auto" item-props lines="three" :items="displayedPosts">
       <template #subtitle="{ item: post }">
         <post :key="post.id" :post="post" />
       </template>
