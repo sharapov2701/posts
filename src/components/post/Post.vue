@@ -77,7 +77,13 @@ function save() {
         />
 
         <div class="d-flex">
-          <v-btn v-if="isEditing" class="mr-2" @click.stop="cancelEditing">
+          <v-btn
+            v-if="isEditing"
+            class="mr-2"
+            color="blue"
+            variant="outlined"
+            @click.stop="cancelEditing"
+          >
             Отмена
             <v-icon icon="mdi-cancel" end />
           </v-btn>
@@ -87,7 +93,13 @@ function save() {
             <v-icon icon="mdi-pencil" end />
           </v-btn>
 
-          <v-btn v-if="isEditing" color="blue" :disabled="isSavingDisabled" @click.stop="save">
+          <v-btn
+            v-if="isEditing"
+            color="blue"
+            variant="flat"
+            :disabled="isSavingDisabled"
+            @click.stop="save"
+          >
             Сохранить
             <v-icon icon="mdi-content-save" end />
           </v-btn>
