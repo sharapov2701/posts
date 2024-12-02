@@ -1,0 +1,15 @@
+{
+  "*.vue": "eslint --fix",
+  "*.js": "eslint --fix",
+  "*.jsx": "eslint --fix",
+  "*.cjs": "eslint --fix",
+  "*.mjs": "eslint --fix",
+  "*.ts": "eslint --fix",
+  "*.tsx": "eslint --fix",
+  "*.cts": "eslint --fix",
+  "*.mts": "eslint --fix",
+  "*.css": "prettier --write",
+  "*.html": "prettier --write",
+  "*.scss": "prettier --write",
+  "*.json": "prettier --write"
+}
